@@ -7,7 +7,6 @@ import { ClearIcon, SearchIcon } from "../../UI/Icons";
 const SearchInput: React.FC = () => {
     const dispatch = useDispatch();
 
-
     const [searchTerm, setSearchTerm] = React.useState("");
 
     const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +44,7 @@ const SearchInput: React.FC = () => {
                     <div
                         className="absolute top-0 right-0 h-full px-2  rounded-r flex items-center"
                         onClick={handleClear}
+                        data-testid="clear-button"
                     >
                         <ClearIcon />
                     </div>
@@ -60,10 +60,5 @@ const SearchInput: React.FC = () => {
         </div>
     );
 };
-
-
-
-
-
 
 export default SearchInput;

@@ -5,14 +5,27 @@ import { formatNumberToK } from '../../helpers/utils';
 import CountryFlag from '../UI/CountryFlag/CountryFlag';
 import GoogleMap from '../UI/GoogleMap/GoogleMap';
 
+
 interface CityDetailsModal {
     isModalOpen: boolean;
     onCloseModal: () => void;
     cityDetail: ICity
 }
 
+interface TableRowProps {
+    label: string;
+    value: string | JSX.Element;
+}
+
+const TableRow: React.FC<TableRowProps> = ({ label, value }) => (
+    <tr>
+        <td className="font-semibold w-1/3 pb-5">{label}:</td>
+        <td className='pb-5'>{value}</td>
+    </tr>
+);
+
 const CityDetailsModal: React.FC<CityDetailsModal> = ({ isModalOpen, onCloseModal, cityDetail }) => {
-    const mapCenter = { lat: parseInt(cityDetail.latitude, 10), lng: parseInt(cityDetail.latitude, 10) };
+    const mapCenter = { lat: parseInt(cityDetail.latitude, 10), lng: parseInt(cityDetail.longitude, 10) };
 
     return (
         <Modal isOpen={isModalOpen} onClose={onCloseModal}>
@@ -20,34 +33,13 @@ const CityDetailsModal: React.FC<CityDetailsModal> = ({ isModalOpen, onCloseModa
             <div className="pt-4 pr-4 pb-4 max-[492px]:p-2">
                 <table className="w-full">
                     <tbody>
-                        <tr>
-                            <td className="font-semibold w-1/3 pb-5">Name:</td>
-                            <td className='pb-5'>{cityDetail.name}</td>
-                        </tr>
-                        <tr>
-                            <td className="font-semibold w-1/3 pb-5">Native Name:</td>
-                            <td className='pb-5'>{cityDetail.name_native}</td>
-                        </tr>
-                        <tr>
-                            <td className="font-semibold w-1/3 pb-5">Continent:</td>
-                            <td className='pb-5'>{cityDetail.continent}</td>
-                        </tr>
-                        <tr>
-                            <td className="font-semibold w-1/3 pb-5">Country:</td>
-                            <td className='pb-5'>{cityDetail.country ? <CountryFlag country={cityDetail.country} /> : cityDetail.country}</td>
-                        </tr>
-                        <tr>
-                            <td className="font-semibold w-1/3 pb-5">Founded:</td>
-                            <td className='pb-5'>{cityDetail.founded}</td>
-                        </tr>
-                        <tr>
-                            <td className="font-semibold w-1/3 pb-5">Population:</td>
-                            <td className='pb-5'>{formatNumberToK(cityDetail.population)}</td>
-                        </tr>
-                        <tr>
-                            <td className="font-semibold w-1/3 pb-5">Landmarks:</td>
-                            <td className='pb-5'>{cityDetail.landmarks?.join(', ')}</td>
-                        </tr>
+                        <TableRow label="Name" value={cityDetail.name} />
+                        <TableRow label="Native Name" value={cityDetail.name_native} />
+                        <TableRow label="Continent" value={cityDetail.continent} />
+                        <TableRow label="Country" value={cityDetail.country ? <CountryFlag country={cityDetail.country} data-testid="country-flag" /> : cityDetail.country} />
+                        <TableRow label="Founded" value={cityDetail.founded} />
+                        <TableRow label="Population" value={formatNumberToK(cityDetail.population)} />
+                        <TableRow label="Landmarks" value={cityDetail.landmarks?.join(', ')} />
                     </tbody>
                 </table>
                 <GoogleMap center={mapCenter} zoom={11} />

@@ -40,7 +40,7 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({ type = LOADER_TYPES.recta
     const loaderClass = LOADER_CSS_CLASSES[type];
 
     return (
-        <div className={[bgClass, className, loaderClass, 'relative overflow-hidden'].join(' ')}>
+        <div data-testid="skeleton-loader" className={[bgClass, className, loaderClass, 'relative overflow-hidden'].join(' ')}>
             <div className="shimmer absolute top-0 right-0 bottom-0 left-0" style={shimmerStyle}></div>
 
         </div>

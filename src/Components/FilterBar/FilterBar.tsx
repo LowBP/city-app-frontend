@@ -4,7 +4,7 @@ import { getRenderedTotalCities, getTotalCities } from "../../Store/selectors";
 import SearchInput from "./SearchInput/SearchInput";
 import SortMenu from "./SortMenu/SortMenu";
 
-const FilterBar: React.FC = () => {
+const FilterBar: React.FC = React.memo(() => {
 
     const totalRenderedCities = useSelector(getRenderedTotalCities);
     const totalCities = useSelector(getTotalCities);
@@ -27,6 +27,6 @@ const FilterBar: React.FC = () => {
             )}
         </div>
     );
-};
-
+});
+FilterBar.displayName = 'FilterBar';
 export default FilterBar;

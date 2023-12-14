@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { ICity } from '../../Types';
 import CountryFlag from '../UI/CountryFlag/CountryFlag';
 import { formatNumberToK } from '../../helpers/utils';
@@ -6,27 +6,25 @@ import CityDetailsModal from '../CityDetailsModal/CityDetailsModal';
 
 interface CityCardProps {
     city: ICity;
-    lastBookElementRef?: React.RefCallback<Element>;
 }
 
-const CityCard: React.FC<CityCardProps> = ({ city, lastBookElementRef }) => {
+const CityCard: React.FC<CityCardProps> = ({ city }) => {
 
     const [isModalOpen, setModalOpen] = useState(false);
 
-    const onCloseModal = () => {
+    const onCloseModal = useCallback(() => {
         setModalOpen(prevState => !prevState);
-    }
+    }, []);
 
-    const showDetailsView = () => {
+    const showDetailsView = useCallback(() => {
         setModalOpen(true);
-    }
+    }, []);
 
     return (
         <>
             <div
                 className="flex items-center justify-center min-h-24 rounded smoothing-antialiased shadow-md hover:cursor-pointer transition-transform transform hover:shadow-lg"
                 onClick={showDetailsView}
-                ref={lastBookElementRef}
             >
                 <div
                     className="border-r border-b border-l border-gray-300 border-t bg-white rounded-b rounded-r rounded-t p-5 flex flex-col justify-between leading-normal lg:sm:h-60 w-full"

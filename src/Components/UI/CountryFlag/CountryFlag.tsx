@@ -11,13 +11,14 @@ const CountryFlag: React.FC<CountryFlagProps> = ({ country, className }) => {
     const countryCode = country && getCountryCode(country) as string;
 
     if (!countryCode) {
-        return <div>Country code not found for {country}</div>;
+        return <div data-testid="na-text">N/A</div>;
     }
 
     return (
         <div>
             {countryCode &&
                 <ReactCountryFlag
+                    data-testid="country-flag-image"
                     className={`cursor-pointer ${className}`}
                     countryCode={countryCode}
                     svg

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import { SortIcon } from "../../UI/Icons";
 import { useDispatch } from "react-redux";
 import { fetchCitiesStart } from "../../../Store/actions";
 
 interface SortMenuProps { }
 
-const SortMenu: React.FC<SortMenuProps> = () => {
+const SortMenu: React.FC<SortMenuProps> = memo(() => {
     const dispatch = useDispatch();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,12 +14,13 @@ const SortMenu: React.FC<SortMenuProps> = () => {
     const [sortBy, setSortBy] = useState("name");
     const [sortOrder, setSortOrder] = useState("");
 
+    const handleOutsideClick = useCallback((event: MouseEvent) => {
+        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            setIsMenuOpen(false);
+        }
+    }, []);
+
     useEffect(() => {
-        const handleOutsideClick = (event: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                setIsMenuOpen(false);
-            }
-        };
 
         if (isMenuOpen) {
             document.addEventListener("click", handleOutsideClick);
@@ -30,7 +31,7 @@ const SortMenu: React.FC<SortMenuProps> = () => {
         return () => {
             document.removeEventListener("click", handleOutsideClick);
         };
-    }, [isMenuOpen]);
+    }, [isMenuOpen, handleOutsideClick]);
 
     const toggleMenu = () => {
         setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
@@ -131,8 +132,8 @@ const SortMenu: React.FC<SortMenuProps> = () => {
             )}
         </div>
     );
-};
-
+});
+SortMenu.displayName = 'SortMenu';
 export default SortMenu;
 
 interface SortMenuItemProps {

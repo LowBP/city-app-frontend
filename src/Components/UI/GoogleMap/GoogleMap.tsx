@@ -15,8 +15,9 @@ const GoogleMap: React.FC<IGoogleMapProps> = ({ center, zoom }) => {
 
 
     return (
-        <div style={{ height: '300px', width: '100%' }}>
+        <div data-testid="google-map-container" style={{ height: '300px', width: '100%' }}>
             <GoogleMapReact
+                data-testid="google-map"
                 bootstrapURLKeys={{ key: 'AIzaSyAet8Mk1nPvOn_AebLE5ZxXoGejOD8tPzA' }}
                 defaultCenter={center}
                 defaultZoom={zoom}

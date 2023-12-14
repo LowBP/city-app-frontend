@@ -5,6 +5,7 @@ import React from "react";
 const SortIcon: React.FC = () => {
 
     return <svg
+        data-testid="sort-icon"
         className="h-5 w-5 text-gray-500"
         fill="none"
         stroke="currentColor"
@@ -18,6 +19,7 @@ const SortIcon: React.FC = () => {
 const SearchIcon: React.FC = () => {
 
     return <svg
+        data-testid="search-icon"
         className="h-5 w-5 text-gray-500"
         fill="none"
         stroke="currentColor"
@@ -37,6 +39,7 @@ const SearchIcon: React.FC = () => {
 const ClearIcon: React.FC = () => {
 
     return <svg
+        data-testid="clear-icon"
         className="h-4 w-4 text-gray-500 cursor-pointer"
         fill="none"
         viewBox="0 0 24 24"
@@ -54,6 +57,7 @@ const ClearIcon: React.FC = () => {
 const InfoIcon: React.FC = () => {
 
     return <svg
+        data-testid="info-icon"
         className="w-8 h-8 transition duration-75 group-hover:text-gray-900 text-gray-900"
         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
         <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
@@ -65,6 +69,7 @@ const InfoIcon: React.FC = () => {
 const ToggleIcon: React.FC = () => {
 
     return <svg
+        data-testid="toggle-icon"
         className="w-6 h-6"
         aria-hidden="true"
         fill="currentColor"
