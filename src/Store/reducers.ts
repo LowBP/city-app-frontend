@@ -11,6 +11,8 @@ const initialState: ICityState = {
   pageSize: 10,
   totalCities: 0,
   totalPages: 0,
+  search: '',
+  sortQuery: { sortBy: '', sortOrder: '' }
 };
 
 function reducer(state: ICityState | undefined = initialState, action: IFetchCitiesActions): ICityState {
@@ -23,6 +25,8 @@ function reducer(state: ICityState | undefined = initialState, action: IFetchCit
         fetchStatus: FetchStatus.PENDING,
       };
     case ActionTypes.FETCH_CITIES_SUCCESS:
+
+      console.log(state)
 
       return {
         ...state,

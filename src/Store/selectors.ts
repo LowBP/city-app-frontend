@@ -28,4 +28,10 @@ export function getHasMoreCities(state: RootState) {
   return state.city.currentPage < state.city.totalPages;
 }
 
+export function getSearch(state: RootState) {
+  return state.city.search;
+}
 
+export function getSortQuery(state: RootState) {
+  return state.city.sortQuery;
+}

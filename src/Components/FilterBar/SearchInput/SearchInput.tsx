@@ -1,11 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesStart } from "../../../Store/actions";
 import { ClearIcon, SearchIcon } from "../../UI/Icons";
+import { getSortQuery } from "../../../Store/selectors";
 
 
 const SearchInput: React.FC = () => {
     const dispatch = useDispatch();
+    const sortQuery = useSelector(getSortQuery);
 
     const [searchTerm, setSearchTerm] = React.useState("");
 
@@ -14,12 +16,12 @@ const SearchInput: React.FC = () => {
     };
 
     const handleSearch = () => {
-        dispatch(fetchCitiesStart(1, searchTerm));
+        dispatch(fetchCitiesStart(1, searchTerm, sortQuery));
     };
 
     const handleClear = () => {
         setSearchTerm("");
-        dispatch(fetchCitiesStart(1, ""));
+        dispatch(fetchCitiesStart(1, "", sortQuery));
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {

@@ -8,6 +8,8 @@ export interface ICityState {
   pageSize: number;
   totalCities: number;
   totalPages: number;
+  search: string;
+  sortQuery: ISortQuery;
 
 }
 
@@ -17,6 +19,8 @@ export interface ICityResponse {
   pageSize: number;
   totalCities: number;
   totalPages: number;
+  search: string;
+  sortQuery: ISortQuery;
 }
 
 export interface ISortQuery { sortBy: string, sortOrder: string }

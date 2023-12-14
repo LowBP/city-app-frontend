@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCitiesStart } from '../../Store/actions';
-import { getCities, getCitiesFetchStatus, getCurrentPage, getHasMoreCities } from '../../Store/selectors';
+import { getCities, getCitiesFetchStatus, getCurrentPage, getHasMoreCities, getSearch, getSortQuery } from '../../Store/selectors';
 import CityCard from '../CityCard/CityCard';
 import CardLoader from '../UI/CardLoader/CardLoader';
 import { FetchStatus } from '../../Types';
@@ -14,11 +14,13 @@ const CityList: React.FC = () => {
     const status = useSelector(getCitiesFetchStatus)
     const hasMore = useSelector(getHasMoreCities)
     const currentPage = useSelector(getCurrentPage)
+    const sortQuery = useSelector(getSortQuery);
+    const search = useSelector(getSearch);
     const isLoading = status === FetchStatus.PENDING
     const isSuccess = status === FetchStatus.SUCCESS
 
     useEffect(() => {
-        dispatch(fetchCitiesStart(pageNumber));
+        dispatch(fetchCitiesStart(pageNumber, search, sortQuery));
     }, [dispatch, pageNumber]);
 
     const observer = useRef<IntersectionObserver | null>(null);

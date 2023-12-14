@@ -11,7 +11,7 @@ function* fetchCitiesSaga(action: IFetchCitiesStartAction) {
   try {
     const { pageNumber, search, sortQuery } = action.payload;
     const cities: ICityResponse = yield call(API.getCities, pageNumber, search, sortQuery);
-    yield put(fetchCitiesSuccess(cities));
+    yield put(fetchCitiesSuccess({ ...cities, search, sortQuery }));
   } catch (error) {
     yield put(fetchCitiesFailure());
   }

@@ -1,12 +1,15 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import { SortIcon } from "../../UI/Icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesStart } from "../../../Store/actions";
+import { getSearch } from "../../../Store/selectors";
 
 interface SortMenuProps { }
 
 const SortMenu: React.FC<SortMenuProps> = memo(() => {
     const dispatch = useDispatch();
+    const search = useSelector(getSearch);
+
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -39,7 +42,10 @@ const SortMenu: React.FC<SortMenuProps> = memo(() => {
 
     const onClear = () => {
         setIsMenuOpen(false);
-        handleSort(sortBy, '')
+        setSortOrder('');
+        setSortBy('')
+        handleSort('', '')
+
 
     };
 
@@ -61,7 +67,7 @@ const SortMenu: React.FC<SortMenuProps> = memo(() => {
     }
 
     const handleSort = (sortBy: string, sortOrder: string) => {
-        dispatch(fetchCitiesStart(1, '', { sortBy, sortOrder }));
+        dispatch(fetchCitiesStart(1, search, { sortBy, sortOrder }));
     };
     return (
         <div className="relative inline-block text-left" ref={menuRef}>
@@ -72,6 +78,9 @@ const SortMenu: React.FC<SortMenuProps> = memo(() => {
                 onClick={toggleMenu}
             >
                 <SortIcon />
+                {sortOrder && (
+                    <div className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></div>
+                )}
             </button>
             {isMenuOpen && (
                 <div className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
