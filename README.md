@@ -50,6 +50,18 @@ The backend code for this project is available in the following repository: [cit
 - **Styling:** Tailwind CSS
 - **Testing:** React Testing Library
 
+### Functionalities 
+- Lazy loading
+- Infinite scroll fetching with lazy loading
+- Search options
+- Sort option for (`population`, `founded`, `name`)
+- Performance improvement
+- Reusable components added to `UI` folder
+- Test cases
+- UI Support for different types of devices
+- Google map integration
+- City detail view
+
 ### Project Structure
 ```
 frontend/
