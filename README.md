@@ -3,6 +3,10 @@
 
 This project is a comprehensive City Explorer application that consists of both a backend and a frontend. The backend provides a REST API endpoint to retrieve information about different cities, and the frontend consumes this API to display the data in a user-friendly interface.
 
+
+<img width="1680" alt="image" src="https://github.com/LowBP/city-app-frontend/assets/33143395/7cff0924-d5e5-402e-8be2-66b9766df503">
+
+
 ## Backend
 
 ### Technology Stack
