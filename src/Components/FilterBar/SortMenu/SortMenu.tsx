@@ -80,7 +80,6 @@ const SortMenu: React.FC<SortMenuProps> = () => {
                         aria-orientation="vertical"
                         aria-labelledby="sort-menu"
                     >
-                        {sortOrder}
                         <SortMenuItem
                             option="name"
                             label="City Name"

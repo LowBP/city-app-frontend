@@ -10,8 +10,8 @@ const FilterBar: React.FC = () => {
     const totalCities = useSelector(getTotalCities);
 
     return (
-        <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-4 justify-between max-[492px]:flex-col">
+        <div className="flex flex-col gap-2 max-[492px]:gap-4">
+            <div className="flex items-center gap-4 justify-between ">
                 <SearchInput />
 
                 <SortMenu />

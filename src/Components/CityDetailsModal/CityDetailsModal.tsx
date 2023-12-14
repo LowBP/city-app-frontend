@@ -17,7 +17,7 @@ const CityDetailsModal: React.FC<CityDetailsModal> = ({ isModalOpen, onCloseModa
     return (
         <Modal isOpen={isModalOpen} onClose={onCloseModal}>
             <h1 className="text-xl font-semibold mb-4">City Detail of &quot;{cityDetail.name}&quot;</h1>
-            <div className="pt-4 pr-4 pb-4">
+            <div className="pt-4 pr-4 pb-4 max-[492px]:p-2">
                 <table className="w-full">
                     <tbody>
                         <tr>

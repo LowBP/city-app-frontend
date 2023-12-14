@@ -32,7 +32,7 @@ const SearchInput: React.FC = () => {
 
     return (
         <div className="flex">
-            <div className="relative flex items-center w-80">
+            <div className="relative flex items-center w-80 max-[492px]:w-48">
                 <input
                     type="text"
                     placeholder="Search city details..."
