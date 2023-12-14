@@ -1,7 +1,6 @@
 import CITY from './apiService';
 
 describe('CITY', () => {
-    // Mock the global fetch function
     const originalFetch = global.fetch;
     beforeEach(() => {
         global.fetch = jest.fn();
@@ -11,7 +10,6 @@ describe('CITY', () => {
     });
 
     it('fetches cities successfully', async () => {
-        // Mock a successful API response
         (global.fetch as any).mockResolvedValueOnce({
             ok: true,
             json: async () => [
@@ -28,12 +26,10 @@ describe('CITY', () => {
             { id: 2, name: 'City2', continent: 'Continent2', population: 2000000, country: 'Country2', founded: 2010, landmarks: ['Landmark2'] },
         ]);
 
-        // Ensure that fetch was called with the correct URL
         expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining('/cities?page=1'));
     });
 
     it('handles API errors', async () => {
-        // Mock an API error response
         (global.fetch as any).mockResolvedValueOnce({
             ok: false,
             status: 404,

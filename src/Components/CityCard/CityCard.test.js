@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CityCard from './CityCard';
 
-// Mock the CityDetailsModal component
 jest.mock('../CityDetailsModal/CityDetailsModal', () => ({ isModalOpen, onCloseModal }) => (
     <div data-testid="mocked-modal">
         <span>{`Modal Open: ${isModalOpen}`}</span>
@@ -10,7 +9,6 @@ jest.mock('../CityDetailsModal/CityDetailsModal', () => ({ isModalOpen, onCloseM
     </div>
 ));
 
-// Mock the CountryFlag component
 jest.mock('../UI/CountryFlag/CountryFlag', () => ({ country, className }) => (
     <div data-testid="mocked-country-flag">{`${country} ${className || ''}`}</div>
 ));
@@ -28,7 +26,6 @@ describe('CityCard', () => {
     it('renders correctly and toggles modal state on click', () => {
         render(<CityCard city={cityMock} />);
 
-        // Check if the city details are displayed
         expect(screen.getByText('Test City')).toBeInTheDocument();
         expect(screen.getByText('Continent')).toBeInTheDocument();
         expect(screen.getByText('Test Continent')).toBeInTheDocument();
@@ -41,20 +38,13 @@ describe('CityCard', () => {
         expect(screen.getByText('Landmarks')).toBeInTheDocument();
         expect(screen.getByText('Landmark1, Landmark2')).toBeInTheDocument();
 
-        // Check if the modal is closed initially
-        // expect(screen.queryByTestId('mocked-modal')).not.toBeInTheDocument();
-
-        // Click on the city card to open the modal
         fireEvent.click(screen.getByText('Test City'));
 
-        // Check if the modal is open after click
         expect(screen.getByTestId('mocked-modal')).toBeInTheDocument();
         expect(screen.getByText('Modal Open: true')).toBeInTheDocument();
 
-        // Click on the "Close Modal" button to close the modal
         fireEvent.click(screen.getByText('Close Modal'));
 
-        // Check if the modal is closed after the button click
         expect(screen.getByTestId('mocked-modal')).toBeInTheDocument();
         expect(screen.getByText('Modal Open: false')).toBeInTheDocument();
     });

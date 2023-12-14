@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 const mockStore = configureMockStore();
 const store = mockStore({
-    // Add your initial state here if needed
+
 });
 
 jest.mock('react-redux', () => ({
@@ -28,11 +28,10 @@ describe('FilterBar', () => {
 
 
     xit('renders correctly', () => {
-        // Mock the selectors' return values
-        useSelector.mockReturnValueOnce(5); // Replace with your desired value
-        useSelector.mockReturnValueOnce(10); // Replace with your desired value
-        getRenderedTotalCities.mockReturnValueOnce(5); // Replace with your desired value
-        getTotalCities.mockReturnValueOnce(10); // Replace with your desired value
+        useSelector.mockReturnValueOnce(5);
+        useSelector.mockReturnValueOnce(10);
+        getRenderedTotalCities.mockReturnValueOnce(5);
+        getTotalCities.mockReturnValueOnce(10);
 
         render(
             <Provider store={store}>
@@ -40,8 +39,6 @@ describe('FilterBar', () => {
             </Provider>
         );
 
-        // Add your assertions based on the rendered output
         expect(screen.getByText('Displaying')).toBeInTheDocument();
-        // Add more assertions as needed
     });
 });
