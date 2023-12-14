@@ -1,4 +1,4 @@
-import { FetchStatus } from '../types';
+import { FetchStatus } from '../Types';
 
 
 

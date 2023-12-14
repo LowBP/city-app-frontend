@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { fetchCitiesStart } from "../../../store/actions";
+import { fetchCitiesStart } from "../../../Store/actions";
 import { ClearIcon, SearchIcon } from "../../UI/Icons";
 
 

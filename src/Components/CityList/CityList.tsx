@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCitiesStart } from '../../store/actions';
-import { getCities, getCitiesFetchStatus, getCurrentPage, getHasMoreCities } from '../../store/selectors';
+import { fetchCitiesStart } from '../../Store/actions';
+import { getCities, getCitiesFetchStatus, getCurrentPage, getHasMoreCities } from '../../Store/selectors';
 import CityCard from '../CityCard/CityCard';
 import CardLoader from '../UI/CardLoader/CardLoader';
-import { FetchStatus } from '../../types';
+import { FetchStatus } from '../../Types';
 
 const CityList: React.FC = () => {
     const [pageNumber, setPageNumber] = useState(1)

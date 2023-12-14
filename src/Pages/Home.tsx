@@ -5,8 +5,8 @@ import Sidebar from '../Components/Sidebar/Sidebar';
 import FilterBar from '../Components/FilterBar/FilterBar';
 import Page500 from '../Pages/Page500';
 import { useSelector } from 'react-redux';
-import { getCitiesFetchStatus } from '../store/selectors';
-import { FetchStatus } from '../types';
+import { getCitiesFetchStatus } from '../Store/selectors';
+import { FetchStatus } from '../Types';
 
 const Home: React.FC = () => {
     const navigate = useNavigate();

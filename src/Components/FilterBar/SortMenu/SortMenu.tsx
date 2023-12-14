@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { SortIcon } from "../../UI/Icons";
 import { useDispatch } from "react-redux";
-import { fetchCitiesStart } from "../../../store/actions";
+import { fetchCitiesStart } from "../../../Store/actions";
 
 interface SortMenuProps { }
 

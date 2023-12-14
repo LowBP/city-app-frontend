@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ICity } from '../../types';
+import { ICity } from '../../Types';
 import CountryFlag from '../UI/CountryFlag/CountryFlag';
 import { formatNumberToK } from '../../helpers/utils';
 import CityDetailsModal from '../CityDetailsModal/CityDetailsModal';

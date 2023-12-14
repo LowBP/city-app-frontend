@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getRenderedTotalCities, getTotalCities } from "../../store/selectors";
+import { getRenderedTotalCities, getTotalCities } from "../../Store/selectors";
 import SearchInput from "./SearchInput/SearchInput";
 import SortMenu from "./SortMenu/SortMenu";
 

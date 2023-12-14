@@ -1,5 +1,5 @@
-import { ISortQuery } from "../store/types";
-import { ICity } from "../types";
+import { ISortQuery } from "../Store/types";
+import { ICity } from "../Types";
 
 
 export default class CITY {

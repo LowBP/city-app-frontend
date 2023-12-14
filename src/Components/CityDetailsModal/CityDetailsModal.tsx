@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from '../UI/Modal/Modal';
-import { ICity } from '../../types';
+import { ICity } from '../../Types';
 import { formatNumberToK } from '../../helpers/utils';
 import CountryFlag from '../UI/CountryFlag/CountryFlag';
 import GoogleMap from '../UI/GoogleMap/GoogleMap';

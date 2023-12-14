@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import { FetchStatus, ICity } from '../types';
+import { FetchStatus, ICity } from '../Types';
 
 export interface ICityState {
   cities: ICity[];
