@@ -37,7 +37,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
     return (
         <div className={`fixed inset-0 ${isOpen ? 'block' : 'hidden'} bg-black bg-opacity-50 z-50`}>
-            <div ref={modalRef} className="smoothing-antialiased absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-md max-w-2xl w-full max-[492px]:w-med max-[492px]:p-4">
+            <div ref={modalRef} className="smoothing-antialiased absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-md max-w-2xl w-full max-[492px]:w-med max-[492px]:p-4 max-[492px]:mt-8">
                 <button className="absolute top-4 right-4 text-gray-500" onClick={closeModal}>
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>

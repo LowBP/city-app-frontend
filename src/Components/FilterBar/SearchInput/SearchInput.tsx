@@ -36,7 +36,7 @@ const SearchInput: React.FC = () => {
                 <input
                     type="text"
                     placeholder="Search city details..."
-                    className="border p-2 rounded-l focus:outline-none focus:shadow-outline w-full"
+                    className="border p-2 rounded-l focus:outline-none w-full"
                     value={searchTerm}
                     onChange={onChangeInput}
                     onKeyDown={handleKeyDown}

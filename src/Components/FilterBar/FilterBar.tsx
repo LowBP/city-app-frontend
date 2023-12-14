@@ -17,7 +17,7 @@ const FilterBar: React.FC = () => {
                 <SortMenu />
             </div>
             {totalRenderedCities > 0 && totalCities && (
-                <div className="justify-center max-[492px]:flex">
+                <div className="justify-center">
                     <p className="text-xs font-light ">
                         Displaying{" "}
                         <span className="font-bold"> {totalRenderedCities} </span> cities out
